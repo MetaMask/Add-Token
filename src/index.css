@@ -4,6 +4,26 @@ body {
   font-family: sans-serif;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App header {
+  background: white;
+}
+
+.App header h1 {
+  color: black;
+}
+
 img.logo {
   width: 100px;
 }
+
+div.values {
+  max-width: 400px;
+}
+
+
