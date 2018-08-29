@@ -4,6 +4,13 @@ body {
   font-family: sans-serif;
 }
 
+.github-banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
 .App {
   display: flex;
   flex-direction: column;
