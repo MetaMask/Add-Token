@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Web3Provider } from 'react-web3';
 import AddTokenPanel from './AddTokenPanel';
+import EditTokenPanel from './EditTokenPanel';
+import { Route } from 'react-router-dom'
 
 class App extends Component {
 
@@ -9,7 +11,8 @@ class App extends Component {
     return (
       <div className="App">
         <Web3Provider>
-          <AddTokenPanel/>
+          <Route path="/edit" component={EditTokenPanel} />
+          <Route path="/add" component={AddTokenPanel} />
         </Web3Provider>
       </div>
     );

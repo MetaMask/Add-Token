@@ -20,9 +20,9 @@ class AddTokenPanel extends Component {
         tokenDecimals = 18,
         tokenAddress = metaMarkAddress,
         tokenImage = 'https://pbs.twimg.com/profile_images/802481220340908032/M_vde_oi_400x400.jpg',
-        tokenNet = 1,
+        tokenNet = '1',
         message = '',
-        net = 1,
+        net = '1',
     } = props
 
     super()
@@ -36,6 +36,15 @@ class AddTokenPanel extends Component {
       message,
       net,
     }
+
+    this.updateNet()
+  }
+
+  async updateNet () {
+    const provider = window.web3.currentProvider
+    const eth = new Eth(provider)
+    const realNet = await eth.net_version()
+    this.setState({ net: realNet })
   }
 
 
@@ -92,10 +101,6 @@ class AddTokenPanel extends Component {
         <Button
           onClick = {async (event) => {
             const provider = window.web3.currentProvider
-            const eth = new Eth(provider)
-            const net = await eth.net_version()
-
-            console.log('adding token')
             provider.sendAsync({
               method: 'metamask_watchAsset',
               params: {
@@ -109,7 +114,6 @@ class AddTokenPanel extends Component {
               },
               id: Math.round(Math.random() * 100000),
             }, (err, added) => {
-              console.log(err, added)
               if (err) {
                 this.setState({
                   message: 'There was a problem adding the token.'
