@@ -5,10 +5,10 @@
   "homepage": "http://metamask.github.io/Add-Token",
   "dependencies": {
     "@material-ui/core": "^3.0.0",
-    "etherscan-link": "^1.0.2",
+    "etherscan-link": "^1.0.3",
     "ethjs-query": "^0.3.8",
     "prop-types": "^15.6.2",
-    "query-string": "^6.1.0",
+    "querystringify": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-form": "^3.5.6",

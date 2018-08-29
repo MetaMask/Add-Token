@@ -10,7 +10,7 @@ import Eth from 'ethjs-query';
 import etherscanLink from 'etherscan-link';
 import { Link } from 'react-router-dom'
 import logo from './coin.jpg';
-import queryString from 'query-string'
+import queryString from 'querystringify'
 
 const metaMarkAddress = '0x617b3f8050a0bd94b6b1da02b4384ee5b4df13f4';
 

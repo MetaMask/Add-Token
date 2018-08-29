@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import queryString from 'query-string'
+import queryString from 'querystringify'
 import TextField from '@material-ui/core/TextField';
 
 const schema = {
