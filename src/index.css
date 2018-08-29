@@ -27,6 +27,7 @@ body {
 
 img.logo {
   width: 100px;
+  border-radius: 50px;
 }
 
 div.values {

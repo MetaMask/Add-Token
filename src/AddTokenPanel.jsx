@@ -72,14 +72,10 @@ class AddTokenPanel extends Component {
       <div className="values">
         <header className="App-header">
           <img src={tokenImage || logo} className="logo" alt="Coin"/>
-          <h1 className="App-title">Watch Token</h1>
+          <h1 className="App-title">Watch {tokenName}</h1>
         </header>
         <Table>
           <TableBody>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>{tokenName}</TableCell>
-            </TableRow>
             <TableRow>
               <TableCell>Symbol</TableCell>
               <TableCell>{tokenSymbol}</TableCell>
@@ -125,7 +121,7 @@ class AddTokenPanel extends Component {
               })
             })
           }}
-        >Track Token in Wallet</Button>
+        >Watch in Wallet</Button>
         <p>{message}</p>
       </div>
     )
