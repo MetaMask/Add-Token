@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <Web3Provider>
           <Route path="/edit" component={EditTokenPanel} />
-          <Route path="/add" component={AddTokenPanel} />
+          <Route path="/" component={AddTokenPanel} />
         </Web3Provider>
       </div>
     );
