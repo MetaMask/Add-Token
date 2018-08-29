@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SwitchNetworkNotice from './SwitchNetworkNotice'
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -69,11 +70,7 @@ class AddTokenPanel extends Component {
     } = this.state
 
     if (tokenNet !== net) {
-      return (
-        <div>
-          You have network {net} selected, but this token requires {tokenNet}. Please switch the current network in your web3 client.
-        </div>
-      )
+      return <SwitchNetworkNotice net={net} tokenNet={tokenNet}/>
     }
 
     return (
@@ -132,6 +129,7 @@ class AddTokenPanel extends Component {
               })
             }}
           >Watch in Wallet</Button>
+
         </div>
 
         <p>{message}</p>
