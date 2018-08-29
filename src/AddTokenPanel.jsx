@@ -5,6 +5,7 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import Typography from '@material-ui/core/Typography';
 import Eth from 'ethjs-query';
 import etherscanLink from 'etherscan-link';
 import logo from './coin.jpg';
@@ -87,42 +88,61 @@ class AddTokenPanel extends Component {
           </TableBody>
         </Table>
 
-        <Button
-          onClick={() => {
-            const { tokenAddress, net } = this.state
-            window.location.href = etherscanLink.createAccountLink(tokenAddress, net)
-          }}
-        >View on Etherscan</Button>
+        <div>
+          <Button
+            onClick={() => {
+              const { tokenAddress, net } = this.state
+              window.location.href = etherscanLink.createAccountLink(tokenAddress, net)
+            }}
+            href={etherscanLink.createAccountLink(tokenAddress, net)}
+          >View on Etherscan</Button>
 
-        <Button
-          onClick = {async (event) => {
-            const provider = window.web3.currentProvider
-            provider.sendAsync({
-              method: 'metamask_watchAsset',
-              params: {
-                "type":"ERC20",
-                "options":{
-                  "address": tokenAddress,
-                  "symbol": tokenSymbol,
-                  "decimals": tokenDecimals,
-                  "image": tokenImage,
+          <Button
+            onClick = {async (event) => {
+              const provider = window.web3.currentProvider
+              provider.sendAsync({
+                method: 'metamask_watchAsset',
+                params: {
+                  "type":"ERC20",
+                  "options":{
+                    "address": tokenAddress,
+                    "symbol": tokenSymbol,
+                    "decimals": tokenDecimals,
+                    "image": tokenImage,
+                  },
                 },
-              },
-              id: Math.round(Math.random() * 100000),
-            }, (err, added) => {
-              if (err) {
+                id: Math.round(Math.random() * 100000),
+              }, (err, added) => {
+                if (err) {
+                  this.setState({
+                    message: 'There was a problem adding the token.'
+                  })
+                  return
+                }
                 this.setState({
-                  message: 'There was a problem adding the token.'
+                  message: 'Token added!'
                 })
-                return
-              }
-              this.setState({
-                message: 'Token added!'
               })
-            })
-          }}
-        >Watch in Wallet</Button>
+            }}
+          >Watch in Wallet</Button>
+        </div>
+
         <p>{message}</p>
+
+        <div className="spacer"></div>
+
+        <Typography gutterBottom noWrap>
+          {`
+            Create a simple page to watch your token with one click.
+          `}
+        </Typography>
+        <Button
+        onClick = {() => {
+          console.log('They want it')
+        }}>
+          Create Page
+        </Button>
+
       </div>
     )
   }
