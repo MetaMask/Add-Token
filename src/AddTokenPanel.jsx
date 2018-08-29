@@ -8,7 +8,9 @@ import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
 import Eth from 'ethjs-query';
 import etherscanLink from 'etherscan-link';
+import { Link } from 'react-router-dom'
 import logo from './coin.jpg';
+import queryString from 'query-string'
 
 const metaMarkAddress = '0x617b3f8050a0bd94b6b1da02b4384ee5b4df13f4';
 
@@ -41,13 +43,18 @@ class AddTokenPanel extends Component {
     this.updateNet()
   }
 
+  componentDidMount() {
+    const search = this.props.location.search
+    const params = queryString.parse(search)
+    this.setState(params)
+  }
+
   async updateNet () {
     const provider = window.web3.currentProvider
     const eth = new Eth(provider)
     const realNet = await eth.net_version()
     this.setState({ net: realNet })
   }
-
 
   render (props, context) {
     const {
@@ -83,7 +90,7 @@ class AddTokenPanel extends Component {
             </TableRow>
             <TableRow>
               <TableCell>Decimals</TableCell>
-              <TableCell>{18}</TableCell>
+              <TableCell>{tokenDecimals}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -136,12 +143,11 @@ class AddTokenPanel extends Component {
             Create a simple page to watch your token with one click.
           `}
         </Typography>
-        <Button
-        onClick = {() => {
-          console.log('They want it')
-        }}>
-          Create Page
-        </Button>
+        <Link to="/edit">
+          <Button>
+            Create Page
+          </Button>
+        </Link>
 
       </div>
     )

@@ -8,12 +8,16 @@
     "etherscan-link": "^1.0.2",
     "ethjs-query": "^0.3.8",
     "prop-types": "^15.6.2",
+    "query-string": "^6.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-form": "^3.5.6",
+    "react-jsonschema-form": "^1.0.4",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-    "react-web3": "^0.4.5"
+    "react-web3": "^0.4.5",
+    "redux-form": "^7.4.2"
   },
   "scripts": {
     "start": "react-scripts start",

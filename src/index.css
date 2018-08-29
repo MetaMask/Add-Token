@@ -43,3 +43,7 @@ div.values {
   flex: 1 0 auto;
 }
 
+.my-form {
+  display: flex;
+  flex-direction: column;
+}
