@@ -2,7 +2,7 @@
 
 A simple Dapp for suggesting tokens to users.
 
-[Live Example](https://metamask.github.io/Add-Token/build))
+[Live Example](https://metamask.github.io/Add-Token)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
