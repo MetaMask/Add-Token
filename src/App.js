@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 class App extends Component {
 
   render(props, context) {
-    console.log('router updated')
+    console.log('router updated with #')
     return (
       <div className="App">
         <a className="github-banner" href="https://github.com/MetaMask/Add-Token"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
@@ -21,7 +21,7 @@ class App extends Component {
             </a>
           </div>}
         >
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <BrowserRouter basename={process.env.PUBLIC_URL + '#'}>
             <Switch>
               <Route path="/edit" component={EditTokenPanel} />
               <Route path="/add" component={AddTokenPanel} />
