@@ -4,7 +4,7 @@ import { Web3Provider } from 'react-web3';
 import AddTokenPanel from './AddTokenPanel';
 import EditTokenPanel from './EditTokenPanel';
 import downloadButton from './download-metamask.png';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
 
@@ -20,11 +20,13 @@ class App extends Component {
             </a>
           </div>}
         >
-          <Switch>
-            <Route path="/edit" component={EditTokenPanel} />
-            <Route path="/add" component={AddTokenPanel} />
-            <Route path="/" component={AddTokenPanel} />
-          </Switch>
+          <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <Switch>
+              <Route path="/edit" component={EditTokenPanel} />
+              <Route path="/add" component={AddTokenPanel} />
+              <Route path="/" component={AddTokenPanel} />
+            </Switch>
+          </BrowserRouter>
         </Web3Provider>
       </div>
     );
