@@ -7,6 +7,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
+import DownloadMetaMaskButton from './DownloadMetaMaskButton';
 import Eth from 'ethjs-query';
 import etherscanLink from 'etherscan-link';
 import { Link } from 'react-router-dom'
@@ -26,6 +27,7 @@ class AddTokenPanel extends Component {
         tokenImage = 'https://pbs.twimg.com/profile_images/802481220340908032/M_vde_oi_400x400.jpg',
         tokenNet = '1',
         message = '',
+        errorMessage = '',
         net = '1',
     } = props
 
@@ -38,6 +40,7 @@ class AddTokenPanel extends Component {
       tokenImage,
       tokenNet,
       message,
+      errorMessage,
       net,
     }
 
@@ -67,7 +70,16 @@ class AddTokenPanel extends Component {
       tokenImage,
       tokenAddress,
       message,
+      errorMessage,
     } = this.state
+
+    let error
+    if (errorMessage !== '') {
+      error = <p className="errorMessage">
+        There was a problem adding this token to your wallet. Make sure you have the latest version of MetaMask installed!
+        <DownloadMetaMaskButton/>
+      </p>
+    }
 
     if (tokenNet !== net) {
       return <SwitchNetworkNotice net={net} tokenNet={tokenNet}/>
@@ -117,14 +129,17 @@ class AddTokenPanel extends Component {
                 },
                 id: Math.round(Math.random() * 100000),
               }, (err, added) => {
-                if (err) {
+                console.log('provider returned', err, added)
+                if (err || 'error' in added) {
                   this.setState({
-                    message: 'There was a problem adding the token.'
+                    errorMessage: 'There was a problem adding the token.',
+                    message: '',
                   })
                   return
                 }
                 this.setState({
-                  message: 'Token added!'
+                  message: 'Token added!',
+                  errorMessage: '',
                 })
               })
             }}
@@ -133,6 +148,7 @@ class AddTokenPanel extends Component {
         </div>
 
         <p>{message}</p>
+        <p className="errorMessage">{error}</p>
 
         <div className="spacer"></div>
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import etherscanLink from 'etherscan-link';
 import switchNetwork from './switch-network.jpg';
 
 class SwitchNetworkNotice extends Component {

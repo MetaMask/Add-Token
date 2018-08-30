@@ -3,7 +3,7 @@ import './App.css';
 import { Web3Provider } from 'react-web3';
 import AddTokenPanel from './AddTokenPanel';
 import EditTokenPanel from './EditTokenPanel';
-import downloadButton from './download-metamask.png';
+import DownloadMetaMaskButton from './DownloadMetaMaskButton';
 import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom';
 
 class App extends Component {
@@ -15,9 +15,7 @@ class App extends Component {
         <Web3Provider
           web3UnavailableScreen={() => <div>
             <p>You need a web3 browser like MetaMask to use this site and manage cryptocurrencies.</p>
-            <a href="https://metamask.io">
-              <img className="downloadButton" src={downloadButton}/>
-            </a>
+            <DownloadMetaMaskButton/>
           </div>}
         >
           <BrowserRouter basename={process.env.PUBLIC_URL}>
