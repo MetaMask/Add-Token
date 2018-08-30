@@ -4,12 +4,11 @@ import { Web3Provider } from 'react-web3';
 import AddTokenPanel from './AddTokenPanel';
 import EditTokenPanel from './EditTokenPanel';
 import downloadButton from './download-metamask.png';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom';
 
 class App extends Component {
 
   render(props, context) {
-    console.log('router updated with #')
     return (
       <div className="App">
         <a className="github-banner" href="https://github.com/MetaMask/Add-Token"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
@@ -21,12 +20,14 @@ class App extends Component {
             </a>
           </div>}
         >
-          <BrowserRouter basename={process.env.PUBLIC_URL + '#'}>
-            <Switch>
-              <Route path="/edit" component={EditTokenPanel} />
-              <Route path="/add" component={AddTokenPanel} />
-              <Route path="/" component={AddTokenPanel} />
-            </Switch>
+          <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <HashRouter hashType="noslash">
+              <Switch>
+                <Route path="/edit" component={EditTokenPanel} />
+                <Route path="/add" component={AddTokenPanel} />
+                <Route path="/" component={AddTokenPanel} />
+              </Switch>
+            </HashRouter>
           </BrowserRouter>
         </Web3Provider>
       </div>
