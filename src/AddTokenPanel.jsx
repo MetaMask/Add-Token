@@ -148,7 +148,7 @@ class AddTokenPanel extends Component {
         </div>
 
         <p>{message}</p>
-        <p className="errorMessage">{error}</p>
+        {error}
 
         <div className="spacer"></div>
 

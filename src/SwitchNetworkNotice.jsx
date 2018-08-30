@@ -11,7 +11,7 @@ class SwitchNetworkNotice extends Component {
         <h2>Wrong Network Detected</h2>
         <p>You have {this.nameForNetwork(net)} selected, but this token requires {this.nameForNetwork(tokenNet)}. Please switch the current network in your web3 client.</p>
         <p>You can switch your current network in MetaMask like this:</p>
-        <img src={switchNetwork}/>
+        <img src={switchNetwork} alt="Network can be switched in the MetaMask network menu in the top right hand corner."/>
       </div>
     )
   }
