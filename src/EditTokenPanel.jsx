@@ -62,7 +62,7 @@ class EditTokenPanel extends Component {
       opts[key] = el.value
     })
 
-    window.location.href = '/add?' + queryString.stringify(opts)
+    window.location.href = './add?' + queryString.stringify(opts)
   }
 }
 

@@ -16,7 +16,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-    "react-web3": "^0.4.5",
+    "react-web3": "^1.2.0",
     "redux-form": "^7.4.2"
   },
   "scripts": {
