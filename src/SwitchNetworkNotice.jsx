@@ -22,6 +22,9 @@ class SwitchNetworkNotice extends Component {
       case '1': // main net
         name = 'The Main Ethereum Network'
         break
+      case '2': // legacy ropsten test net
+        name = 'The OLD Ropsten Test Network'
+        break
       case '3': // ropsten test net
         name = 'The Ropsten Test Network'
         break

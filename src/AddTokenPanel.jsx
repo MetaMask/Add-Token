@@ -44,6 +44,13 @@ class AddTokenPanel extends Component {
       net,
     }
 
+    const search = window.location.search
+    const params = queryString.parse(search)
+
+    for (let key in params) {
+      this.state[key] = params[key]
+    }
+
     this.updateNet()
   }
 
