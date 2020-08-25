@@ -1,6 +1,6 @@
-# Add Token Adpp
+# Add Token Dapp
 
-A simple Dapp for suggesting tokens to users.
+A simple dapp for suggesting tokens to users.
 
 [Live Example](https://metamask.github.io/Add-Token)
 
