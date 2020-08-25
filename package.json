@@ -1,5 +1,6 @@
 {
   "name": "token-adder",
+  "license": "ISC",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://metamask.github.io/Add-Token",
