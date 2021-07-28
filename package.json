@@ -6,6 +6,7 @@
   "homepage": "http://metamask.github.io/Add-Token",
   "dependencies": {
     "@material-ui/core": "^3.0.0",
+    "ethers": "^5.4.2",
     "etherscan-link": "^1.0.3",
     "ethjs-query": "^0.3.8",
     "prop-types": "^15.6.2",
