@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import { Web3Provider } from 'react-web3';
 import AddTokenPanel from './AddTokenPanel';
 import EditTokenPanel from './EditTokenPanel';
 import DownloadMetaMaskButton from './DownloadMetaMaskButton';
