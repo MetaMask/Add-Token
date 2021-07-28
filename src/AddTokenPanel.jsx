@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import detectEthereumProvider from '@metamask/detect-provider'
 import SwitchNetworkNotice from './SwitchNetworkNotice'
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
@@ -18,17 +18,17 @@ const metaMarkAddress = '0x617b3f8050a0bd94b6b1da02b4384ee5b4df13f4';
 
 class AddTokenPanel extends Component {
 
-  constructor (props) {
+  constructor(props) {
     const {
       tokenName = 'MetaMarks',
-        tokenSymbol = 'MARK',
-        tokenDecimals = 18,
-        tokenAddress = metaMarkAddress,
-        tokenImage = 'https://pbs.twimg.com/profile_images/802481220340908032/M_vde_oi_400x400.jpg',
-        tokenNet = '1',
-        message = '',
-        errorMessage = '',
-        net = '1',
+      tokenSymbol = 'MARK',
+      tokenDecimals = 18,
+      tokenAddress = metaMarkAddress,
+      tokenImage = 'https://pbs.twimg.com/profile_images/802481220340908032/M_vde_oi_400x400.jpg',
+      tokenNet = '1',
+      message = '',
+      errorMessage = '',
+      net = '1',
     } = props
 
     super()
@@ -60,14 +60,14 @@ class AddTokenPanel extends Component {
     this.setState(params)
   }
 
-  async updateNet () {
-    const provider = window.web3.currentProvider
+  async updateNet() {
+    const provider = await detectEthereumProvider()
     const eth = new Eth(provider)
     const realNet = await eth.net_version()
     this.setState({ net: realNet })
   }
 
-  render (props, context) {
+  render(props, context) {
     const {
       tokenName,
       tokenSymbol,
@@ -84,18 +84,18 @@ class AddTokenPanel extends Component {
     if (errorMessage !== '') {
       error = <p className="errorMessage">
         There was a problem adding this token to your wallet. Make sure you have the latest version of MetaMask installed!
-        <DownloadMetaMaskButton/>
+        <DownloadMetaMaskButton />
       </p>
     }
 
     if (tokenNet !== net) {
-      return <SwitchNetworkNotice net={net} tokenNet={tokenNet}/>
+      return <SwitchNetworkNotice net={net} tokenNet={tokenNet} />
     }
 
     return (
       <div className="values">
         <header className="App-header">
-          <img src={tokenImage || logo} className="logo" alt="Coin"/>
+          <img src={tokenImage || logo} className="logo" alt="Coin" />
           <h1 className="App-title">Watch {tokenName}</h1>
         </header>
         <Table>
@@ -121,13 +121,13 @@ class AddTokenPanel extends Component {
           >View on Etherscan</Button>
 
           <Button
-            onClick = {async (event) => {
-              const provider = window.web3.currentProvider
+            onClick={async (event) => {
+              const provider = await detectEthereumProvider()
               provider.sendAsync({
                 method: 'metamask_watchAsset',
                 params: {
-                  "type":"ERC20",
-                  "options":{
+                  "type": "ERC20",
+                  "options": {
                     "address": tokenAddress,
                     "symbol": tokenSymbol,
                     "decimals": tokenDecimals,
@@ -173,10 +173,6 @@ class AddTokenPanel extends Component {
       </div>
     )
   }
-}
-
-AddTokenPanel.contextTypes = {
-  web3: PropTypes.object,
 }
 
 export default AddTokenPanel;
