@@ -7,10 +7,8 @@
   "dependencies": {
     "@material-ui/core": "^3.0.0",
     "@metamask/detect-provider": "^1.2.0",
-    "ethers": "^5.4.2",
     "etherscan-link": "^1.0.3",
     "ethjs-query": "^0.3.8",
-    "prop-types": "^15.6.2",
     "querystringify": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -18,9 +16,7 @@
     "react-jsonschema-form": "^1.0.4",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
-    "react-web3": "danfinlay/react-web3#Improve-1102-Support",
-    "redux-form": "^7.4.2"
+    "react-scripts": "1.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
