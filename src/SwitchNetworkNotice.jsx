@@ -1,5 +1,6 @@
 import React from 'react';
 import switchNetwork from './switch-network.jpg';
+import PropTypes from 'prop-types';
 
 const nameForNetwork = (network) => {
   let name = ''
@@ -24,6 +25,11 @@ const nameForNetwork = (network) => {
   }
   return name;
 }
+
+SwitchNetworkNotice.PropTypes = {
+  net: PropTypes.string,
+  tokenNet: PropTypes.string,
+};
 
 const SwitchNetworkNotice = (props) => {
 
