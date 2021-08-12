@@ -9,6 +9,7 @@
     "@metamask/detect-provider": "^1.2.0",
     "etherscan-link": "^1.0.3",
     "ethjs-query": "^0.3.8",
+    "prop-types": "^15.7.2",
     "querystringify": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
