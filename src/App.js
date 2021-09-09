@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import detectEthereumProvider from '@metamask/detect-provider'
-import './App.css';
+import detectEthereumProvider from '@metamask/detect-provider';
+import React, { useState } from 'react';
+import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom';
 import AddTokenPanel from './AddTokenPanel';
-import EditTokenPanel from './EditTokenPanel';
+import './App.css';
 import DownloadMetaMaskButton from './DownloadMetaMaskButton';
-import { BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom';
+import EditTokenPanel from './EditTokenPanel';
+import loadingSvg from './loading.svg';
 
 
 const MainContent = () => {
@@ -25,31 +26,36 @@ const MainContent = () => {
 
 const ErrorContent = () => {
   return (
-    <div>
-      <p>You need a web3 browser like MetaMask to use this site and manage cryptocurrencies.</p>
-      <DownloadMetaMaskButton />
+    <div className="container">
+      <div>
+        <h2>You need a web3 browser like MetaMask to use this site and manage cryptocurrencies.</h2>
+        <DownloadMetaMaskButton />
+      </div>
     </div>
   )
 }
 
 const App = () => {
   const [isProviderLoaded, setProvider] = useState([]);
+  const [isLoading, setLoading] = useState([true]);
 
   const checkEthereumProvider = async () => {
     const provider = await detectEthereumProvider()
+    setLoading(false)
     setProvider(provider)
   }
 
-  useEffect(() => {
-    checkEthereumProvider()
-  }, [isProviderLoaded])
+  checkEthereumProvider()
 
   return (
     <div className="App">
-      <a className="github-banner" href="https://github.com/MetaMask/Add-Token"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
+      {isLoading ? <div className="container"><div><img className="loading-spinner" src={loadingSvg} /><h2>Loading.....</h2></div></div>
+        : <div>
+          <a className="github-banner" href="https://github.com/MetaMask/Add-Token"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
 
-      {isProviderLoaded ? <MainContent /> : <ErrorContent />}
+          {isProviderLoaded ? <MainContent /> : <ErrorContent />}
 
+        </div>}
     </div>
   );
 }
