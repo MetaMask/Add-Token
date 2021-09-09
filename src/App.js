@@ -26,7 +26,7 @@ const MainContent = () => {
 
 const ErrorContent = () => {
   return (
-    <div className="container">
+    <div>
       <div>
         <h2>You need a web3 browser like MetaMask to use this site and manage cryptocurrencies.</h2>
         <DownloadMetaMaskButton />
@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {isLoading ? <div className="container"><div><img className="loading-spinner" src={loadingSvg} /><h2>Loading.....</h2></div></div>
+      {isLoading ? <div><div><img className="loading-spinner" src={loadingSvg} /><h2>Loading.....</h2></div></div>
         : <div>
           <a className="github-banner" href="https://github.com/MetaMask/Add-Token"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
 
