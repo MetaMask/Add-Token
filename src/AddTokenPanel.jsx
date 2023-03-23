@@ -124,7 +124,7 @@ class AddTokenPanel extends Component {
             onClick={async (event) => {
               const provider = await detectEthereumProvider()
               provider.sendAsync({
-                method: 'metamask_watchAsset',
+                method: 'wallet_watchAsset',
                 params: {
                   "type": "ERC20",
                   "options": {
