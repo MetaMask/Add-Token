@@ -19,6 +19,9 @@ const nameForNetwork = (network) => {
     case '42': // kovan test net
       name = 'The Kovan Test Network'
       break
+    case '11155111': // sepolia test net
+      name = 'The Sepolia Test Network'
+      break
     default:
       name = `Network #${network}`
   }
