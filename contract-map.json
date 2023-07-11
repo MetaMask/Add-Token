@@ -1,0 +1,8 @@
+{ 
+  "0x45327d4Cf00ad4C2D2Aa4230Db93E149980e3390": {
+    "name": "chudCoin",
+    "logo": "chudCoin.svg",
+    "erc20": true,
+    "symbol": "CHUD",
+    "decimals": 18
+  }
