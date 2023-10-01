@@ -7,8 +7,8 @@ const nameForNetwork = (network) => {
     case '1': // main net
       name = 'The Main Ethereum Network'
       break
-    case '2': // legacy ropsten test net
-      name = 'The OLD Ropsten Test Network'
+    case '56': // legacy ropsten test net
+      name = 'The Main Binance Smart Chain Network'
       break
     case '3': // ropsten test net
       name = 'The Ropsten Test Network'
@@ -37,7 +37,7 @@ const SwitchNetworkNotice = (props) => {
       <h1>Add Token</h1>
       <h2>Wrong Network Detected</h2>
       <p>You have {nameForNetwork(net)} selected, but this token requires {nameForNetwork(tokenNet)}. Please switch the current network in your web3 client.</p>
-      <p>You can switch your current network in MetaMask like this:</p>
+      <p>You can switch your current network in MetaMask like this.Finally, refresh the page:</p>
       <img src={switchNetwork} alt="Network can be switched in the MetaMask network menu in the top right hand corner." />
     </div>
   )

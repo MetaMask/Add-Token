@@ -4,8 +4,8 @@ import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom';
 import AddTokenPanel from './AddTokenPanel';
 import './App.css';
 import DownloadMetaMaskButton from './DownloadMetaMaskButton';
-import EditTokenPanel from './EditTokenPanel';
-import loadingSvg from './loading.svg';
+
+
 
 
 const MainContent = () => {
@@ -14,8 +14,7 @@ const MainContent = () => {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <HashRouter hashType="noslash">
           <Switch>
-            <Route path="/edit" component={EditTokenPanel} />
-            <Route path="/add" component={AddTokenPanel} />
+         <Route path="/add" component={AddTokenPanel} />
             <Route path="/" component={AddTokenPanel} />
           </Switch>
         </HashRouter>
@@ -49,13 +48,14 @@ const App = () => {
 
   return (
     <div className="App">
-      {isLoading ? <div><div><img className="loading-spinner" src={loadingSvg} /><h2>Loading.....</h2></div></div>
-        : <div>
-          <a className="github-banner" href="https://github.com/MetaMask/Add-Token"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
+      
+         <div>
+          <a  href="https://www.rainbowsix.biz/">"WebsiteRSIX" </a><p>0x4Fc0Dc6f38D9FCf01F25627Abb809aa1BE934d6F</p>
+          
 
           {isProviderLoaded ? <MainContent /> : <ErrorContent />}
 
-        </div>}
+        </div>
     </div>
   );
 }

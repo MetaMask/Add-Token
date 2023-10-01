@@ -9,26 +9,25 @@ import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
 import DownloadMetaMaskButton from './DownloadMetaMaskButton';
 import Eth from 'ethjs-query';
-import etherscanLink from 'etherscan-link';
 import { Link } from 'react-router-dom'
 import logo from './coin.jpg';
 import queryString from 'querystringify'
 
-const metaMarkAddress = '0x617b3f8050a0bd94b6b1da02b4384ee5b4df13f4';
+const metaMarkAddress = '0x4Fc0Dc6f38D9FCf01F25627Abb809aa1BE934d6F';
 
 class AddTokenPanel extends Component {
 
   constructor(props) {
     const {
-      tokenName = 'MetaMarks',
-      tokenSymbol = 'MARK',
+      tokenName = 'RainbowSix',
+      tokenSymbol = 'RSIX',
       tokenDecimals = 18,
       tokenAddress = metaMarkAddress,
-      tokenImage = 'https://pbs.twimg.com/profile_images/802481220340908032/M_vde_oi_400x400.jpg',
-      tokenNet = '1',
+      tokenImage = 'https://github.com/TokenRSIX/RainbowSix/blob/main/rsix%20200x200.png?raw=true',
+      tokenNet = '56',
       message = '',
       errorMessage = '',
-      net = '1',
+      net = '56',
     } = props
 
     super()
@@ -102,7 +101,7 @@ class AddTokenPanel extends Component {
           <TableBody>
             <TableRow>
               <TableCell>Symbol</TableCell>
-              <TableCell>{tokenSymbol}</TableCell>
+            <TableCell>{tokenSymbol}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Decimals</TableCell>
@@ -113,12 +112,8 @@ class AddTokenPanel extends Component {
 
         <div>
           <Button
-            onClick={() => {
-              const { tokenAddress, net } = this.state
-              window.location.href = etherscanLink.createAccountLink(tokenAddress, net)
-            }}
-            href={etherscanLink.createAccountLink(tokenAddress, net)}
-          >View on Etherscan</Button>
+           
+          > <a  href="https://bscscan.com/token/0x4Fc0Dc6f38D9FCf01F25627Abb809aa1BE934d6F">View on BscScan</a> </Button>
 
           <Button
             onClick={async (event) => {
@@ -145,12 +140,12 @@ class AddTokenPanel extends Component {
                   return
                 }
                 this.setState({
-                  message: 'Token added!',
+                  message: 'RSIX added!',
                   errorMessage: '',
                 })
               })
             }}
-          >Watch in Wallet</Button>
+          >Add RSIX </Button>
 
         </div>
 
@@ -161,12 +156,12 @@ class AddTokenPanel extends Component {
 
         <Typography gutterBottom noWrap>
           {`
-            Create a simple page to watch your token with one click.
+            
           `}
         </Typography>
         <Link to="/edit">
           <Button>
-            Create Page
+          
           </Button>
         </Link>
 
