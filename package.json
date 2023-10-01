@@ -1,9 +1,9 @@
 {
-  "name": "token-adder",
-  "license": "ISC",
+  "name": "add-token",
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://metamask.github.io/Add-Token",
+  "homepage": "https://fanmemecoin.github.io/Add-Token",
   "dependencies": {
     "@material-ui/core": "^3.0.0",
     "@metamask/detect-provider": "^1.2.0",
